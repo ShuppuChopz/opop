@@ -1,0 +1,6 @@
+#!/bin/bash
+for i in {1..10}
+result=$(mysql -u root -p'root' -e "USE USER_DB; SELECT password FROM USERS where id=$1;")
+
+echo $password
+temp-pw=$(echo $paasword |open ss| enc -aes-256-cbc -md sh512 -a -pbkdf2 -iter 10000 -salt -pass pass: Secret@123#)
