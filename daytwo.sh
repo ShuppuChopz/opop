@@ -4,3 +4,6 @@ result=$(mysql -u root -p'root' -e "USE USER_DB; SELECT password FROM USERS wher
 
 echo $password
 temp-pw=$(echo $paasword |open ss| enc -aes-256-cbc -md sh512 -a -pbkdf2 -iter 10000 -salt -pass pass: Secret@123#)
+
+mysql -u root -e pass -e "UPDATE users SET password = '$temppw' WHERE id='$i';"
+done
